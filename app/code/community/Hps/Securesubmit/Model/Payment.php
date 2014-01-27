@@ -1,5 +1,5 @@
 <?php
-require_once Mage::getBaseDir('lib').DS.'SecureSubmit'.DS.'hpsChargeService.php';
+require_once Mage::getBaseDir('lib').DS.'SecureSubmit'.DS.'SDK'.DS.'hpsChargeService.php';
 
 class Hps_Securesubmit_Model_Payment extends Mage_Payment_Model_Method_Cc
 {
