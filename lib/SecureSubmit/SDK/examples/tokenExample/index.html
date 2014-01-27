@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PSS SIMPLE DEMO</title>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/pss.js"></script>
+    <script type="text/javascript" src="js/token_request.js"></script>
+</head>
+
+<body>
+    <div class="main_wrapper">
+        <div id="payment_wrapper">
+            <!---- INFORMATION FORM START ---->
+            <form id="payment_form" name="payment_form" action="tokenChargeExample.php" method="post">
+                <h3>Payment Form</h3>
+                <div class="amount_wrapper">
+                    <div>
+                        <label>Amount:</label>
+                    </div>
+                    <div class="field">
+                        <input id="user_amount" name="user_amount" size="30" type="text" value="90.01" />
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <h3>Personal Information</h3>
+                <div class="field">
+                    <label for="user_first_name" style="display: none;">First name</label>
+                    <input id="user_first_name" name="user_first_name" placeholder="First Name" size="30" type="text" value="" />
+                </div>
+                <div class="field">
+                    <label for="user_last_name" style="display: none;">Last name</label>
+                    <input id="user_last_name" name="user_last_name" placeholder="Last Name" size="30" type="text" value="" />
+                </div>
+                <div class="field">
+                    <label for="user_street" style="display: none;">Home address</label>
+                    <input id="user_street" name="user_street" placeholder="Home Address" size="30" style="text-transform: capitalize;" type="text" value="" />
+                </div>
+                <div class="field">
+                    <label for="user_city" style="display: none;">City</label>
+                    <input id="user_city" name="user_city" placeholder="City" size="30" style="text-transform: capitalize;" type="text" value="" />
+                </div>
+                <div id="state_zip_wrapper">
+                    <div class="field">
+                        <label for="user_state" style="display: none;">State</label>
+                        <select id="user_state" name="user_state">
+                            <option value="">Choose a State</option>
+                            <option value="AL">Alabama</option>
+                            <option value="AK">Alaska</option>
+                            <option value="AZ">Arizona</option>
+                            <option value="AR">Arkansas</option>
+                            <option value="CA">California</option>
+                            <option value="CO">Colorado</option>
+                            <option value="CT">Connecticut</option>
+                            <option value="DE">Delaware</option>
+                            <option value="DC">District of Columbia</option>
+                            <option value="FL">Florida</option>
+                            <option value="GA">Georgia</option>
+                            <option value="HI">Hawaii</option>
+                            <option value="ID">Idaho</option>
+                            <option value="IL">Illinois</option>
+                            <option value="IN" selected>Indiana</option>
+                            <option value="IA">Iowa</option>
+                            <option value="KS">Kansas</option>
+                            <option value="KY">Kentucky</option>
+                            <option value="LA">Louisiana</option>
+                            <option value="ME">Maine</option>
+                            <option value="MD">Maryland</option>
+                            <option value="MA">Massachusetts</option>
+                            <option value="MI">Michigan</option>
+                            <option value="MN">Minnesota</option>
+                            <option value="MS">Mississippi</option>
+                            <option value="MO">Missouri</option>
+                            <option value="MT">Montana</option>
+                            <option value="NE">Nebraska</option>
+                            <option value="NV">Nevada</option>
+                            <option value="NH">New Hampshire</option>
+                            <option value="NJ">New Jersey</option>
+                            <option value="NM">New Mexico</option>
+                            <option value="NY">New York</option>
+                            <option value="NC">North Carolina</option>
+                            <option value="ND">North Dakota</option>
+                            <option value="OH">Ohio</option>
+                            <option value="OK">Oklahoma</option>
+                            <option value="OR">Oregon</option>
+                            <option value="PA">Pennsylvania</option>
+                            <option value="PR">Puerto Rico</option>
+                            <option value="RI">Rhode Island</option>
+                            <option value="SC">South Carolina</option>
+                            <option value="SD">South Dakota</option>
+                            <option value="TN">Tennessee</option>
+                            <option value="TX">Texas</option>
+                            <option value="UT">Utah</option>
+                            <option value="VT">Vermont</option>
+                            <option value="VA">Virginia</option>
+                            <option value="WA">Washington</option>
+                            <option value="WV">West Virginia</option>
+                            <option value="WI">Wisconsin</option>
+                            <option value="WY">Wyoming</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <label for="user_zip" style="display: none;">Zip</label>
+                        <input id="user_zip" name="user_zip" pattern="[0-9]*" placeholder="ZIP Code" size="30" type="text" value="47130" />
+                    </div>
+                    <div class="clear"></div>
+                </div>
+               <div class="field">
+                    <label for="user_email" style="display: none;">Email address</label>
+                    <input id="user_email" name="user_email" placeholder="Email Address" size="30" type="email" value="" />
+                </div>
+            </form>
+            <!---- INFORMATION FORM END ---->
+        </div>
+        <div id="card_wrapper">
+            <!---- PAYMENT FORM START ---->
+            <form id="card_data" name="card_data" action="" method="post">
+                <h3>Debit / Credit Card Information</h3>
+                <label id="LabelSvcError"></label>
+                <div class="field">
+                    <label for="card_number" style="display: none;">Card Number</label>
+                    <input autocomplete="off" id="card_number" name="card_number" pattern="[0-9]*" placeholder="Card Number" type="text" value="547350000000014" />
+                </div>
+                <div class="field">
+                    <label for="card_cvc" style="display: none;">Card CVC</label>
+                    <input autocomplete="off" id="card_cvc" name="card_cvc" pattern="[0-9]*" placeholder="Card CVC" type="text" value="123" />
+                </div>
+                <div class="expiration_wrapper">
+                    <div class="field">
+                        <select id="card_month" name="card_month">
+                            <option value="">Exp Month</option>
+                            <option value="1">1 - Jan</option>
+                            <option value="2">2 - Feb</option>
+                            <option value="3">3 - Mar</option>
+                            <option value="4">4 - Apr</option>
+                            <option value="5">5 - May</option>
+                            <option value="6">6 - Jun</option>
+                            <option value="7">7 - Jul</option>
+                            <option value="8">8 - Aug</option>
+                            <option value="9">9 - Sep</option>
+                            <option value="10">10 - Oct</option>
+                            <option value="11">11 - Nov</option>
+                            <option value="12" selected>12 - Dec</option>
+                        </select>
+                    </div>
+                    <div class="field">
+                        <select id="card_year" name="card_year">
+                            <option value="">Exp Year</option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015" selected>2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                        </select>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="field"></div>
+            </form>
+            <!---- PAYMENT FORM END ---->
+        </div>
+        <div id="button_wrapper">
+            <!---- PAYMENT BUTTON ---->
+            <div class="field">
+                <input type="submit" name="request_payment_button" id="request_payment_button" class="form_button" value="Process Payment" />
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
